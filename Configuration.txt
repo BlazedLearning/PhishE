@@ -1,0 +1,5 @@
+FeaturesFile=ExtractedFeatures.csv
+ClassificationsFile=ClassifiedDomains.csv
+Requests=5
+MISP_Username=admin
+MISP_Password=admin
