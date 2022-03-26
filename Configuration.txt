@@ -1,5 +1,6 @@
 FeaturesFile=ExtractedFeatures.csv
 ClassificationsFile=ClassifiedDomains.csv
+ModelFile=finalized_model.sav
 Requests=5
 MISP_Username=admin
 MISP_Password=admin
