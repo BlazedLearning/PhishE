@@ -8,9 +8,10 @@ import numpy as np
 import sklearn # pip3 install scikit-learn==0.23.2
 from sklearn import svm , preprocessing
 import pickle
+import Configuration
 
 class Detect:
-    def __init__(self, datafile ,weights = 'finalized_model.sav'):
+    def __init__(self, datafile ,weights = Configuration.ModelFile()):
         self.df = pd.read_csv(datafile)
         self.df = self.df.fillna(self.df.median()).clip(-1e11,1e11)
         self.X = self.df.values
