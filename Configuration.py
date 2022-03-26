@@ -18,5 +18,8 @@ def FExtractFile(): # Name of the output CSV file with extracted features
 def ClassificationsFile(): # Name of the output CSV file with classified domains
     return str(Dictionnary['ClassificationsFile'])
 
+def ModelFile(): # The saved model file that will get loaded to the program
+    return str(Dictionnary['ModelFile'])
+
 def Requests(): # Number of requests per run
     return int(Dictionnary['Requests'])
