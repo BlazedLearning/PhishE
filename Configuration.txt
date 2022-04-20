@@ -1,0 +1,8 @@
+FeaturesFile=ExtractedFeatures.csv
+ClassificationsFile=ClassifiedDomains.csv
+ClassificationsFile2=ClassifiedDomains_SMS.csv
+ClassificationsFile3=ClassifiedMISP.csv
+MISP_outfile=MISP_getter.csv
+DomainsModelFile=dtree.pkl
+NLPModelFile=NLP_weights.pkl
+Requests=30
