@@ -30,7 +30,7 @@ while True:
         for index, row in df.iterrows():
             EventDict[df.at[index, 'event_id']] = df.at[index, 'value']
 
-        with open("SMS_MISP.csv", a) as f:
+        with open("SMS_MISP.csv", 'a') as f:
             write = csv.writer(f)
 
             # Check if file exist and it is empty
