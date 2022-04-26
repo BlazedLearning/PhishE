@@ -28,8 +28,11 @@ def ClassificationsFile(): # Name of the output CSV file with classified domains
 def ClassificationsFile2(): # Name of the output CSV file with classified domains and SMSs
     return str(Dictionnary['ClassificationsFile2'])
 
-def ClassificationsFile3():
+def ClassificationsFile3(): # Name of the output CSV file with classified domains and SMSs from MISP
     return str(Dictionnary['ClassificationsFile3'])
+
+def MISP_SMS(): # Name of the file where SMS from MISP will be put before going into the NLP model
+    return str(Dictionnary['MISP_SMS'])
 
 def MISP_outfile(): # Name of the CSV file where info from MISP will be put when requested
     return str(Dictionnary['MISP_outfile'])
