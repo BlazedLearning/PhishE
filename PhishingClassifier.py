@@ -30,12 +30,12 @@ while True:
         for index, row in df.iterrows():
             EventDict[df.at[index, 'event_id']] = df.at[index, 'value']
 
-        with open("SMS_MISP.csv", 'a') as f:
+        with open(Configuration.MISP_SMS(), 'a') as f:
             write = csv.writer(f)
 
             # Check if file exist and it is empty
             try:
-                if os.path.exists(Configuration.FExtractFile()) and os.stat(Configuration.FExtractFile()).st_size == 0:
+                if os.path.exists(Configuration.MISP_SMS()) and os.stat(Configuration.MISP_SMS()).st_size == 0:
                     write.writerow("SMS")
 
             except Exception as e:
@@ -87,7 +87,7 @@ while True:
                     break
 
         Classifications = Detect(str(Configuration.FExtractFile())).predict()
-        NLP_Classifications = Detect_NLP("SMS_MISP.csv").predict()
+        NLP_Classifications = Detect_NLP(Configuration.MISP_SMS()).predict()
 
         SMSs = []
         for key in EventDict:
