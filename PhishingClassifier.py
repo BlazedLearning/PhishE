@@ -38,6 +38,10 @@ while True:
             if df.at[index, 'event_id'] in events2pop:
                 df.drop([index], axis = 0, inplace = True)
 
+        if df.empty:
+            print("All MISP events are classified.")
+            break
+
         EventDict = {}
         for index, row in df.iterrows():
             EventDict[df.at[index, 'event_id']] = df.at[index, 'value']
@@ -73,7 +77,7 @@ while True:
             Requests = 0
             Domains = []
             for index, row in df.iterrows():
-                if Requests < int(Configuration.Requests()) and Requests < 2000: # For unlimited requests please check googlesearch-python as a service
+                if Requests < int(Configuration.Requests()): # For unlimited requests please check googlesearch-python as a service
 
                     try:
                         features = FExtract(index, df.at[index, 'value']).generate_data_set(URLFinder(df.at[index, 'value']).Find()[0])
@@ -173,7 +177,7 @@ while True:
                 Requests = 0
                 Domains = []
                 for index, row in data.iterrows():
-                    if Requests < int(Configuration.Requests()) and Requests < 500: # For unlimited requests please check googlesearch as a service
+                    if Requests < int(Configuration.Requests()): # For unlimited requests please check googlesearch as a service
 
                         try:
                             features = FExtract(index, data).generate_data_set(URLFinder(row['attrib_value']).Find()[0])
@@ -210,17 +214,19 @@ while True:
             for index, row in data.iterrows():
                 SMSs.append(data.at[index, "attrib_value"])
 
+            data.rename(columns = {'attrib_value':'SMS'}, inplace = True)
+
             data.to_csv("TELUS_SMS.csv", index = False)
 
             NLP_Classifications = Detect_NLP("TELUS_SMS.csv").predict()
 
-            with open(str(Configuration.ClassificationsFile()), 'a') as g:
+            with open(str(Configuration.ClassificationsFile2()), 'a') as g:
                 write = csv.writer(g)
 
                 headers = ['Domain', 'Domain model', 'SMS', 'NLP model']
                 # Check if file exist and it is empty
                 try:
-                    if os.path.exists(Configuration.ClassificationsFile()) and os.stat(Configuration.ClassificationsFile()).st_size == 0:
+                    if os.path.exists(Configuration.ClassificationsFile2()) and os.stat(Configuration.ClassificationsFile2()).st_size == 0:
                         write.writerow(headers)
 
                 except Exception as e:
@@ -258,7 +264,7 @@ while True:
                 Requests = 0
                 Domains = []
                 for index, row in data.iterrows():
-                    if Requests < int(Configuration.Requests()) and Requests < 500: # For unlimited requests please check googlesearch as a service
+                    if Requests < int(Configuration.Requests()): # For unlimited requests please check googlesearch as a service
 
                         try:
                             features = FExtract(index, data).generate_data_set(data.at[index, 'DOMAINS'])
@@ -321,7 +327,7 @@ while True:
                 Requests = 0
                 Domains = []
                 for index, row in data.iterrows():
-                    if Requests < int(Configuration.Requests()) and Requests < 2000: # For unlimited requests please check googlesearch-python as a service
+                    if Requests < int(Configuration.Requests()): # For unlimited requests please check googlesearch-python as a service
 
                         try:
                             features = FExtract(index, data).generate_data_set(URLFinder(row['SMS']).Find()[0])
