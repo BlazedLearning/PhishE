@@ -23,7 +23,6 @@ class CSV_Dataset_Cleanup:
             # Change the values of domains to URLs only
             # data.at[index, 'info'] = (data.at[index, 'info'].split(' - ')[1]).lower()
 
-            """ The below commented code is only for Telus-related formats """
             # Change the values of event_tags to Phishing or not (Phishing = Yes, Non-Phishing = No)
             #for x in data.at[index, 'event_tags'].split('|'):
 
