@@ -15,7 +15,7 @@ class CSV_Dataset_Cleanup:
         data = pd.read_csv(self.CSV_file)
 
         # Drop unwanted columns
-        data.drop(['index', 'event_ts', 'event_id', 'event_tags', 'attrib_type', 'event_tags', 'attrib_ts', 'attrib_tags'], inplace=True, axis=1)
+        data.drop(['index', 'info', 'event_ts', 'event_id', 'event_tags', 'attrib_type', 'event_tags', 'attrib_ts', 'attrib_tags'], inplace=True, axis=1)
 
         # Iterate through the dataset to clean it up
         # for index, row in data.iterrows():
