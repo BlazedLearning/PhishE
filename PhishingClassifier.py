@@ -6,6 +6,7 @@
 
 from Dataset_Cleanup import CSV_Dataset_Cleanup
 from FeaturesExtraction import FExtract
+import requests
 from FindURL import URLFinder
 from model import Detect
 from NLP_model import Detect_NLP
@@ -25,6 +26,17 @@ while True:
     if option == "1":
         Getter(Misp_types = 'text').Get()
         df = pd.read_csv(Configuration.MISP_outfile())
+
+        events2pop = []
+        for index, row in df.iterrows():
+            if str(df.at[index, 'category']) == "External analysis":
+                events2pop.append(df.at[index, 'event_id'])
+
+        events2pop = list(set(events2pop))
+
+        for index, row in df.iterrows():
+            if df.at[index, 'event_id'] in events2pop:
+                df.drop([index], axis = 0, inplace = True)
 
         EventDict = {}
         for index, row in df.iterrows():
@@ -164,7 +176,7 @@ while True:
                     if Requests < int(Configuration.Requests()) and Requests < 500: # For unlimited requests please check googlesearch as a service
 
                         try:
-                            features = FExtract(index, data).generate_data_set(data.at[index, 'info'])
+                            features = FExtract(index, data).generate_data_set(URLFinder(row['attrib_value']).Find()[0])
 
                         except requests.exceptions.HTTPError:
                             print("Request limit with googlesearch is hit, try again in 30 minutes.")
@@ -182,7 +194,7 @@ while True:
                             #    values_list.append(1)
 
                             Requests += 1
-                            Domains.append(data.at[index, 'info'])
+                            Domains.append(URLFinder(row['attrib_value']).Find()[0])
                             write.writerow(values_list)
 
                         else:
@@ -193,11 +205,29 @@ while True:
                         break
 
             Classifications = Detect(str(Configuration.FExtractFile())).predict()
+
+            SMSs = []
+            for index, row in data.iterrows():
+                SMSs.append(data.at[index, "attrib_value"])
+
+            data.to_csv("TELUS_SMS.csv", index = False)
+
+            NLP_Classifications = Detect_NLP("TELUS_SMS.csv").predict()
+
             with open(str(Configuration.ClassificationsFile()), 'a') as g:
                 write = csv.writer(g)
 
+                headers = ['Domain', 'Domain model', 'SMS', 'NLP model']
+                # Check if file exist and it is empty
+                try:
+                    if os.path.exists(Configuration.ClassificationsFile()) and os.stat(Configuration.ClassificationsFile()).st_size == 0:
+                        write.writerow(headers)
+
+                except Exception as e:
+                    print(e)
+
                 for i in range(len(Domains)):
-                    row = [Domains[i], Classifications[i]]
+                    row = [Domains[i], Classifications[i], SMSs[i], NLP_Classifications[i]]
                     write.writerow(row)
 
         elif InputOption == "2":
@@ -317,7 +347,6 @@ while True:
                         break
 
             Classifications = Detect(str(Configuration.FExtractFile())).predict()
-
             NLP_Classifications = Detect_NLP(str(CSV_file)).predict()
 
             SMSs = []
