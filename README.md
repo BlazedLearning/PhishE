@@ -17,7 +17,7 @@ If you are still struggling with dependencies, type python3 -m pip install and t
 
 There are 2 modes in this program:
 1- MISP pulling, classification, and pulling
-![alt text](https://github.com/[HadiElKarhani]/[PhishE]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/HadiElKarhani/PhishE/blob/main/GuidancePics/MISP_Pic.png)
 
 2- Passing CSV files, classification, and save
-![alt text](https://github.com/[HadiElKarhani]/[PhishE]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/HadiElKarhani/PhishE/blob/main/GuidancePics/CSV_Pic.png)
