@@ -1,9 +1,9 @@
 # PhishE
-Final Year Project - Phishing & Smishing Classifier - 2022
+Phishing & Smishing Classifier with MISP
 
 Authors: Hadi El Karhani - Yorgo Bou Samra - Riad Jamal
 
-Supervisors: Imad Elhajj - Ayman Kayssi
+Advisors: Imad Elhajj - Ayman Kayssi
 
 Python 3.8+, MISP 2.4+ compatible
 
