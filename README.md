@@ -20,13 +20,13 @@ There are 2 modes in this program:
 ![alt text](https://github.com/HadiElKarhani/PhishE/blob/main/GuidancePics/MISP_Pic.png)
 
 When you pull from your MISP instance:
-![alt text](https://github.com/HadiElKarhani/PhishE/blob/main/GuidancePics/MISP_Pic2.png)
+![alt text](https://github.com/HadiElKarhani/PhishE/blob/main/GuidancePics/MISP2_Pic.png)
 
 When you push to your MISP instance:
-![alt text](https://github.com/HadiElKarhani/PhishE/blob/main/GuidancePics/MISP_Pic3.png)
+![alt text](https://github.com/HadiElKarhani/PhishE/blob/main/GuidancePics/MISP3_Pic.png)
 
 What gets pushed to each new event on your MISP instance:
-![alt text](https://github.com/HadiElKarhani/PhishE/blob/main/GuidancePics/MISP_Pic4.png)
+![alt text](https://github.com/HadiElKarhani/PhishE/blob/main/GuidancePics/MISP4_Pic.png)
 
 2- Passing CSV files, classification, and save
 ![alt text](https://github.com/HadiElKarhani/PhishE/blob/main/GuidancePics/CSV_Pic.png)
