@@ -2,6 +2,7 @@ FeaturesFile=ExtractedFeatures.csv
 ClassificationsFile=ClassifiedDomains.csv
 ClassificationsFile2=ClassifiedDomains_SMS.csv
 ClassificationsFile3=ClassifiedMISP.csv
+ClassificationsFile4=ClassifiedTELUS.csv
 MISP_SMS=SMS_MISP.csv
 MISP_outfile=MISP_getter.csv
 DomainsModelFile=dtree.pkl

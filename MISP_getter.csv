@@ -1,0 +1,5 @@
+uuid,event_id,category,type,value,comment,to_ids,date,object_relation,attribute_tag,object_uuid,object_name,object_meta_category
+"d4b6473b-2121-47a1-9c41-12c5ea7d8e2f",1,"Network activity","text","this is a test: www.google.com","",0,1650641230,"","","","",""
+"b078a4f2-fff0-4dec-98c9-67363fabbed0",2,"Network activity","text","Hello St,phane  Your item 14508032372 is still in the distribution warehouse . Visit our web to find your product: uganin.me/ywFsuXp","",0,1650933038,"","","","",""
+"03b4b719-fd55-467c-b0f3-13d1ebd5b12d",3,"Network activity","text","hi Cody: A product ips-14033966282 is held in the customs center . Please visit the site to get your item: arodej.me/fYexHcv","",0,1650933070,"","","","",""
+
