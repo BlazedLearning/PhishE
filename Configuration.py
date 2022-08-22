@@ -1,4 +1,4 @@
-# Extracting info from the txt file
+# Extracting info from the .txt file
 
 File_in = open('Configuration.txt', 'r')
 Lines = File_in.read().split('\n')
@@ -8,10 +8,12 @@ for line in Lines:
     if line != "":
         Index.append(line.split('='))
 
+# Creating a Dictionary of variables to be read later on        
+
 Dictionnary = {}
 
 for index in Index:
-    Dictionnary[index[0]]=index[1]
+    Dictionnary[index[0]]=index[1]  
 
 def FExtractFile(): # Name of the output CSV file with extracted features
     return str(Dictionnary['FeaturesFile'])
