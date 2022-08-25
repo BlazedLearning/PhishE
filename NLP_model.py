@@ -8,6 +8,10 @@ import pandas as pd
 import Configuration
 
 class Detect_NLP:
+    """
+    Class used to load NLP model in the constructor
+    and output predictions in the predic functiono
+    """
     def __init__(self, datafile ,pickles = str(Configuration.NLPModelFile())):
         self.df = pd.read_csv(datafile)
         self.description_list = self.df['SMS'].tolist()
