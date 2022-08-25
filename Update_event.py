@@ -7,6 +7,10 @@ from pymisp import MISPAttribute
 from keys import misp_url, misp_key, misp_verifycert
 
 class Pusher:
+    """
+    Class used to push data to MISP instance
+    this is used to push predictions to MISP
+    """
     def __init__(self, Type, Value, Category, Comment, EventId):
         self.Type = Type
         self.Value = Value
