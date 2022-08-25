@@ -11,6 +11,10 @@ import pickle
 import Configuration
 
 class Detect:
+    
+    """Class used to load the domains checker model in the constructor
+    as well as the predict function that outputs predictions"""
+    
     def __init__(self, datafile ,weights = str(Configuration.DomainsModelFile())):
         self.df = pd.read_csv(datafile)
         self.df = self.df.fillna(self.df.median()).clip(-1e11,1e11)
