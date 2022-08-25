@@ -6,6 +6,10 @@ from keys import misp_url, misp_key, misp_verifycert
 import Configuration
 
 class Getter:
+    
+    """Class that gets data from MISP in a CSV format
+    It can be modified to include more data"""
+    
     def __init__(self, Controller = 'attributes', Event_id = None, Attribute = None, Object_attribute = None, Misp_types = None, context = False, outfile = Configuration.MISP_outfile()):
         # description: 'Get MISP stuff as CSV.'
         # controller", default='attributes', help="Attribute to use for the search (events, objects, attributes)")
