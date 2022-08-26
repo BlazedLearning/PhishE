@@ -14,7 +14,7 @@ To run this project on your machine, please run: "pip3 install -r requirements.t
 You can switch some parameters in the "Configuration.txt" file without having to hardcode them, don't touch them if you don't know what you are doing; FeaturesFile: where the domain-specific features get extracted and saved as a CSV file. ClassificationsFile: where the final output of domains and their classifications get saved as a CSV file. ModelFile: the saved Machine Learning model that gets loaded to the program. Requests: How many googlesearch requests/domain classifications do you want per run, etc...
 
 If you are still struggling with dependencies, type python3 -m pip install and then the name of the library you are missing.
-There are 2 modes in this program: 
+There are 2 modes in this program, you can see some examples in the modes folder. Walkthrough in the GUI: 
 
 1- MISP pulling, classification, and pulling
 ![alt text](https://github.com/HadiElKarhani/PhishE/blob/main/GuidancePics/MISP_Pic.png)
