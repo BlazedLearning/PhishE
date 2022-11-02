@@ -1,9 +1,9 @@
 # PhishE
 Phishing & Smishing Classifier with MISP
 
-Authors: Hadi El Karhani - Yorgo Bou Samra - Riad Jamal
+Authors: N/A
 
-Advisors: Imad Elhajj - Ayman Kayssi
+Advisors: N/A
 
 Python 3.8+, MISP 2.4+ compatible
 
